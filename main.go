@@ -7,7 +7,7 @@ import(
 
 func main() {
     board:= NewBoard()
-    printBoard(board)
+    board.Print()
     println("hello!")
     for 1 < 2 {
       doMove(board)
@@ -20,8 +20,8 @@ func doMove(board Board) {
   reader := bufio.NewReader(os.Stdin)
   text,_ := reader.ReadBytes('\n')
   next_move := NewMove(text)
-  move(board, next_move)
-  printBoard(board)
+  board.Move(next_move)
+  board.Print()
 }
 
 
