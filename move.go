@@ -8,6 +8,10 @@ type Move struct {
   color string `json:color`
 }
 
+func NewMoveString(s string) Move {
+  return NewMove([]byte(s))
+}
+
 func NewMove(b []byte) Move {
   var dat map[string]interface{}
   if err := json.Unmarshal(b, &dat); err != nil {

@@ -9,6 +9,7 @@ const(
 type Board interface {
   Print() Board
   Move(Move) Board
+  StoneAt(int, int) string
 }
 
 
@@ -37,6 +38,10 @@ func (board memoryBoard) Print() Board {
     println()
   }
   return board
+}
+
+func (board memoryBoard) StoneAt(x int, y int) string {
+  return board.grid[y][x]
 }
 
 func (board memoryBoard) Move(move Move) Board {
