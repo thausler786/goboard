@@ -6,7 +6,8 @@ import(
 )
 
 func main() {
-    board:= NewBoard()
+    validator := NewValidator()
+    board:= NewBoard(validator)
     board.Print()
     println("hello!")
     for 1 < 2 {

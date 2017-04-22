@@ -3,9 +3,9 @@ package main
 import "encoding/json"
 
 type Move struct {
-  x int        `json:x`
-  y int        `json:y`
-  color string `json:color`
+  X int        `json:x`
+  Y int        `json:y`
+  Color string `json:color`
 }
 
 func NewMoveString(s string) Move {

@@ -16,7 +16,7 @@ var _ = Describe("Board", func() {
 
   Describe("Moving on the board", func() {
     BeforeEach(func() {
-      board = NewBoard()
+      board = NewBoard(NewValidator())
       move = NewMoveString("{\"x\": 1, \"y\": 2, \"color\": \"H\"}")
     })
 
@@ -24,5 +24,19 @@ var _ = Describe("Board", func() {
       Expect(board.Move(move).StoneAt(1, 2)).To(Equal("H"))
     })
   })
+
+  Describe("Validating the move", func() {
+    It("Calls the validator to validate its move", func() {
+    })
+  })
+
+  Describe("Adjudicating the move", func() {
+
+    It("removes individual stones that are dead", func() {
+    })
+
+    It("adjudicates the movee's stones before the mover's", func () {})
+  })
+
 
 })

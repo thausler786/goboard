@@ -10,18 +10,28 @@ type Board interface {
   Print() Board
   Move(Move) Board
   StoneAt(int, int) string
+  XDimen() int
+  YDimen() int
 }
 
 
 type memoryBoard struct {
   grid [19][19]string
   black_turn bool
+  validator Validator
 }
 
+func (board memoryBoard) XDimen() int {
+  return 19
+}
 
+func (board memoryBoard) YDimen() int {
+  return 19
+}
 
-func NewBoard() Board {
+func NewBoard(validator Validator) Board {
   board := new(memoryBoard)
+  board.validator = validator
   for y,row := range board.grid {
     for x,_ := range row {
       board.grid[y][x] = EMPTY
@@ -45,6 +55,6 @@ func (board memoryBoard) StoneAt(x int, y int) string {
 }
 
 func (board memoryBoard) Move(move Move) Board {
-  board.grid[move.y][move.x] = move.color
+  board.grid[move.Y][move.X] = move.Color
   return board
 }
