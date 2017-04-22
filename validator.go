@@ -17,5 +17,8 @@ func (v validator) IsValid(b Board, m Move) bool {
   if b.StoneAt(m.X, m.Y) != EMPTY {
     return false
   }
+  if b.CurrentMover() != m.Color {
+    return false
+  }
   return true
 }

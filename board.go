@@ -12,6 +12,7 @@ type Board interface {
   StoneAt(int, int) string
   XDimen() int
   YDimen() int
+  CurrentMover() string
 }
 
 
@@ -27,6 +28,11 @@ func (board memoryBoard) XDimen() int {
 
 func (board memoryBoard) YDimen() int {
   return 19
+}
+
+func (board memoryBoard) CurrentMover() string {
+  if board.black_turn { return BLACK }
+  return WHITE
 }
 
 func NewBoard(validator Validator) Board {

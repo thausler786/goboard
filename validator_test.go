@@ -35,6 +35,8 @@ var _ = Describe("Validator", func() {
     })
 
     It("does not allow moves with the wrong stone color", func() {
+      move1 := NewMoveString("{\"x\": 2, \"y\": 2, \"color\": \"O\"}")
+      Expect(validator.IsValid(board, move1)).To(BeFalse())
     })
 
     It("does not allow placing a piece on another piece", func() {
